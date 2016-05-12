@@ -1,0 +1,35 @@
+{% extends 'listApp/base.html' %}
+
+{% block content %}
+    <p><a href="{% url 'todo_new' %}" class="btn btn-success" role="button">Neues TODO anlegen</a></p>            
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Was zu tun ist</th>
+          <th>Deadline</th>
+          <th>Fortschritt</th>
+          <th>Aktionen</th>
+        </tr>
+      </thead>
+      <tbody>
+      	{% for todo in todos %}
+        <tr>
+          <td>{{ todo.text }}</td>
+          <td>{{ todo.deadline }}</td>
+          <td>
+            <div class="progress">
+              <div class="progress-bar progress-bar-success progress-bar-striped active" role="progressbar" aria-valuenow="{{ todo.progress }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ todo.progress }}%">{{ todo.progress }}%
+              </div>
+            </div> 
+          </td>
+          <td><abbr title="TODO bearbeiten"><a href="{% url 'todo_edit' pk=todo.pk %}" class="btn btn-primary" role="button"><span class="glyphicon glyphicon-pencil"></span></a></abbr>
+            <abbr title="TODO löschen"><a href="{% url 'todo_delete' pk=todo.pk %}" class="btn btn-danger" role="button">
+              <span class="glyphicon glyphicon-trash"></span></a></abbr></td>
+        </tr>
+        {% endfor %}
+       </tbody>
+        </table>
+        <p class="text-center">
+          <a href="about.html">Impressum</a>
+        </p>
+{% endblock %}
