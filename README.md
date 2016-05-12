@@ -6,7 +6,7 @@ Wie können wir den Server starten?
 
 Vorrausetzungen: Django 1.9.6 Python 3.4
 
-1. Ropository herunterladen.
+1. Repository herunterladen.
 2. Entpacken und cd in heruntergeladener Datei.
 3. Eigene Virtual Enviroment erstellen.
 4. Dantenbank erstellen.
